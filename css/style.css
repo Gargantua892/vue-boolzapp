@@ -2,6 +2,16 @@
     font-family: 'Roboto', sans-serif;
 }
 
+body{
+    height: 100vh;
+    padding: 24px 0px!important;
+    background-color: #dadbd4;
+}
+
+main{
+    height: 100%;
+}
+
 header{
     height: 160px;
     background-color: #009688;
@@ -23,11 +33,11 @@ header{
 }
 
 .side-msg-container{
-    width: 350px;
+    width: 440px;
 }
 
 .chat-container{
-    width: calc(100% - 350px);
+    width: calc(100% - 440px);
 }
 
 .top-bar, .selected{
@@ -76,7 +86,7 @@ i.bi.bi-bell-slash {
 
 .msg {
     display: inline-block;
-    padding: 20px 68px 20px 12px;
+    padding: 16px 68px 20px 12px;
     border-radius: 8px;
     position: relative;
 }
@@ -90,12 +100,21 @@ i.bi.bi-bell-slash {
 }
 
 .inner-chat{
-    background-image: rgba(255,255,255, 0.8), url('https://i.pinimg.com/736x/8c/98/99/8c98994518b575bfd8c949e91d20548b.jpg');
+    background-image: linear-gradient(0deg, rgba(229, 221, 213, 0.7)0%, rgba(229, 221, 213, 0.7)100%), url("https://i.pinimg.com/736x/8c/98/99/8c98994518b575bfd8c949e91d20548b.jpg");
+    overflow: auto;
+    height: calc(100% - 54px);
+    overflow: auto;
 }
+
+
 
 span.chat-time {
     position: absolute;
     right: 4px;
     bottom: 4px;
     font-size: 10px;
+}
+
+.bottom-bar{
+    background-color: #f3eeeb;
 }

@@ -26,9 +26,9 @@
 
     </header>
     <main>
-        <div class="container bg-white mt-5">
-            <div class="row">
-                <div class="col-12 d-flex p-0">
+        <div class="container bg-white h-100">
+            <div class="row h-100">
+                <div class="col-12 d-flex p-0 h-100">
                      <!-- sidebar -->
                     <div class="side-msg-container">
 
@@ -53,7 +53,10 @@
 
                         <!-- Search Bar -->
                         <div class="search-bar p-2">
-                            <input class="form-control" type="search" placeholder="Search" aria-label="Search">
+                            <div class="input-group mb-3">
+                                <span class="input-group-text bg-white text-black-50" id="basic-addon1"><i class="bi bi-search px-2 "></i></span>
+                                <input type="search" class="form-control" placeholder="Cerca o inizia una nuova chat" aria-label="Search">
+                              </div>
                         </div>
 
                         <!-- sidebar avatar -->
@@ -95,7 +98,7 @@
                     </div>
 
                     <!-- Chat container -->
-                    <div class="chat-container">
+                    <div class="chat-container d-flex flex-column justify-content-between">
                         <!-- Top bar -->
                         <div class="top-bar d-flex align-items-center justify-content-between p-2">
                             <div class="avatar d-flex align-items-center">
@@ -112,22 +115,39 @@
                             </div>
                         </div>
                         <div class="inner-chat p-5">
-                            <div class="msg-container text-end">
-                                <div class="msg sent">
-                                    <p>Hai portato a spasso il cane?</p>
-                                    <span class="chat-time">16:15</span>
-                                </div>
+
+                        <!-- Messaggi -->
+                        <div class="msg-container text-end">
+                            <div class="msg sent">
+                                <p>Hai portato a spasso il cane?</p>
+                                <span class="chat-time">16:15</span>
                             </div>
-                            <div class="msg-container text-end">
-                                <div class="msg sent">
-                                    <p class="sent">Ricordati di stendere i panni</p>
-                                    <span class="chat-time">16:15</span>
-                                </div>
+                        </div>
+                        <div class="msg-container text-end">
+                            <div class="msg sent">
+                                <p class="sent">Ricordati di stendere i panni</p>
+                                <span class="chat-time">16:15</span>
                             </div>
-                            <div class="msg-container">
-                                <div class="msg recived">
-                                    <p>Ricordati di stendere i panni</p>
-                                    <span class="chat-time">16:15</span>
+                        </div>
+                        <div class="msg-container">
+                            <div class="msg recived">
+                                <p>Ricordati di stendere i panni</p>
+                                <span class="chat-time">16:15</span>
+                            </div>
+                        </div>
+                        <!-- / Messaggi -->
+
+                        </div>
+                        <div class="bottom-bar d-flex align-items-center p-2">
+                            <div class="d-flex align-items-center justify-content-between w-100">
+                                <div class="px-3">
+                                    <i class="bi bi-emoji-smile text-black-50"></i>
+                                </div>
+                                <div class="w-100">
+                                    <input class="form-control" type="search" placeholder="Scrivi un messaggio" aria-label="Search">
+                                </div>
+                                <div class="px-3">
+                                    <i class="bi bi-mic-fill text-black-50"></i>
                                 </div>
                             </div>
                         </div>
