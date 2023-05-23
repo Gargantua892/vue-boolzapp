@@ -1,0 +1,101 @@
+*{
+    font-family: 'Roboto', sans-serif;
+}
+
+header{
+    height: 160px;
+    background-color: #009688;
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: -1;
+}
+.avatar img{
+    width: 50px;
+    height: 50px;
+    border-radius: 100px;
+}
+
+.avatar img.small{
+    width: 40px;
+    height: 40px;
+}
+
+.side-msg-container{
+    width: 350px;
+}
+
+.chat-container{
+    width: calc(100% - 350px);
+}
+
+.top-bar, .selected{
+    background-color: #eaeaea;
+}
+
+.top-bar{
+    position: relative;
+    z-index: 10;
+}
+
+.icons {
+    font-size: 18px;
+    gap: 12px;
+    display: flex;
+    color: #9a9a9a;
+}
+
+.chat-container .top-bar{
+    border-left: 1px solid #cccccc;
+}
+
+.small-text{
+    font-size: 12px;
+}
+
+.banner{
+    background-color: #8fdafc;
+}
+
+i.bi.bi-bell-slash {
+    font-size: 20px;
+    padding: 16px;
+    background-color: #fff;
+    border-radius: 50%;
+    color: #8fdafc;
+}
+
+.chat-container{
+    position: relative;
+}
+
+.msg-container{
+    margin: 16px 0px;
+}
+
+.msg {
+    display: inline-block;
+    padding: 20px 68px 20px 12px;
+    border-radius: 8px;
+    position: relative;
+}
+
+.msg.sent{
+    background-color: #d5f9ba;
+}
+
+.msg.recived{
+    background-color: #fff;
+}
+
+.inner-chat{
+    background-image: rgba(255,255,255, 0.8), url('https://i.pinimg.com/736x/8c/98/99/8c98994518b575bfd8c949e91d20548b.jpg');
+}
+
+span.chat-time {
+    position: absolute;
+    right: 4px;
+    bottom: 4px;
+    font-size: 10px;
+}

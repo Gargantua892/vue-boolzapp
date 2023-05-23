@@ -13,10 +13,129 @@
 
     <!-- Fogli di stile -->
     <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/style-reset.css">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
 
     <title>Boolzapp</title>
 </head>
 <body>
+    <header>
+
+    </header>
+    <main>
+        <div class="container bg-white mt-5">
+            <div class="row">
+                <div class="col-12 d-flex p-0">
+                     <!-- sidebar -->
+                    <div class="side-msg-container">
+
+                        <!-- Top bar -->
+                        <div class="top-bar d-flex align-items-center justify-content-between p-2">
+                            <div class="avatar d-flex align-items-center">
+                                <img class="small" src="https://www.w3schools.com/howto/img_avatar2.png" alt="">
+                                <p class="ms-2">Nome</p>
+                            </div>
+                            <div class="icons">
+                                <i class="bi bi-clock-history"></i>
+                                <i class="bi bi-chat-left-text-fill"></i>
+                                <i class="bi bi-three-dots-vertical"></i>
+                            </div>
+                        </div>
+
+                        <!-- barra notifica --> 
+                        <div class="banner d-flex align-items-center px-2 py-4">
+                            <i class="bi bi-bell-slash"></i>
+                            <p class="ms-2">Ricevi notifiche di nuovi messaggi <br><span class="small-text"><u>Attiva notifiche desktop</u></span></p>
+                        </div>
+
+                        <!-- Search Bar -->
+                        <div class="search-bar p-2">
+                            <input class="form-control" type="search" placeholder="Search" aria-label="Search">
+                        </div>
+
+                        <!-- sidebar avatar -->
+                        <div class="avatar-list">
+
+                            <!-- Avatar nella sezione laterali -->
+                            <div class="avatar d-flex justify-content-between ps-3 p-2">
+                                <div class="d-flex align-items-center">
+                                    <div class="pic-container">
+                                        <img src="https://www.w3schools.com/howto/img_avatar2.png" alt="">
+                                    </div>
+                                    <div class="name-container ms-2">
+                                        <p>Nome</p>
+                                        <span class="small-text text-secondary">Messaggio</span>
+                                    </div>
+                                </div>
+                                <div class="time">
+                                    <span class="small-text text-secondary">12:00</span>
+                                </div>
+                            </div>
+
+                            <!-- Avatar nella sezione laterali -->
+                            <div class="avatar d-flex justify-content-between selected ps-3 p-2">
+                                <div class="d-flex align-items-center">
+                                    <div class="pic-container">
+                                        <img src="https://www.w3schools.com/howto/img_avatar2.png" alt="">
+                                    </div>
+                                    <div class="name-container ms-2">
+                                        <p>Nome</p>
+                                        <span class="small-text text-secondary">Messaggio</span>
+                                    </div>
+                                </div>
+                                <div class="time">
+                                    <span class="small-text text-secondary">12:00</span>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+
+                    <!-- Chat container -->
+                    <div class="chat-container">
+                        <!-- Top bar -->
+                        <div class="top-bar d-flex align-items-center justify-content-between p-2">
+                            <div class="avatar d-flex align-items-center">
+                                <img class="small" src="https://www.w3schools.com/howto/img_avatar2.png" alt="">
+                                <div class="name-container ms-2">
+                                    <p>Nome</p>
+                                    <span class="small-text text-secondary">Ultimo accesso oggi alle .....</span>
+                                </div>
+                            </div>
+                            <div class="icons">
+                                <i class="bi bi-search"></i>
+                                <i class="bi bi-paperclip"></i>
+                                <i class="bi bi-three-dots-vertical"></i>
+                            </div>
+                        </div>
+                        <div class="inner-chat p-5">
+                            <div class="msg-container text-end">
+                                <div class="msg sent">
+                                    <p>Hai portato a spasso il cane?</p>
+                                    <span class="chat-time">16:15</span>
+                                </div>
+                            </div>
+                            <div class="msg-container text-end">
+                                <div class="msg sent">
+                                    <p class="sent">Ricordati di stendere i panni</p>
+                                    <span class="chat-time">16:15</span>
+                                </div>
+                            </div>
+                            <div class="msg-container">
+                                <div class="msg recived">
+                                    <p>Ricordati di stendere i panni</p>
+                                    <span class="chat-time">16:15</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
     
     
     <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
