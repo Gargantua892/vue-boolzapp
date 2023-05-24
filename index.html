@@ -35,8 +35,8 @@
                         <!-- Top bar -->
                         <div class="top-bar d-flex align-items-center justify-content-between p-2">
                             <div class="avatar d-flex align-items-center">
-                                <img class="small" src="https://www.w3schools.com/howto/img_avatar2.png" alt="">
-                                <p class="ms-2">Nome</p>
+                                <img class="small" src="https://images.pexels.com/photos/614810/pexels-photo-614810.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2" alt="">
+                                <p class="ms-2">Andrea</p>
                             </div>
                             <div class="icons">
                                 <i class="bi bi-clock-history"></i>
@@ -53,7 +53,7 @@
 
                         <!-- Search Bar -->
                         <div class="search-bar p-2">
-                            <div class="input-group mb-3">
+                            <div class="input-group">
                                 <span class="input-group-text bg-white text-black-50" id="basic-addon1"><i class="bi bi-search px-2 "></i></span>
                                 <input type="search" class="form-control" placeholder="Cerca o inizia una nuova chat" aria-label="Search">
                               </div>
@@ -63,7 +63,7 @@
                         <div class="avatar-list">
 
                             <!-- Avatar nella sezione laterali -->
-                            <div class="avatar d-flex justify-content-between ps-3 p-2">
+                            <div class="avatar d-flex justify-content-between ps-3 p-2 selected">
                                 <div class="d-flex align-items-center">
                                     <div class="pic-container">
                                         <img src="https://www.w3schools.com/howto/img_avatar2.png" alt="">
@@ -79,14 +79,18 @@
                             </div>
 
                             <!-- Avatar nella sezione laterali -->
-                            <div class="avatar d-flex justify-content-between selected ps-3 p-2">
+                            <div v-for="(contact, index) in contacts" class="avatar d-flex justify-content-between ps-3 p-2">
                                 <div class="d-flex align-items-center">
                                     <div class="pic-container">
-                                        <img src="https://www.w3schools.com/howto/img_avatar2.png" alt="">
+                                        <img :src="contact.avatar" alt="">
                                     </div>
                                     <div class="name-container ms-2">
-                                        <p>Nome</p>
-                                        <span class="small-text text-secondary">Messaggio</span>
+                                        <p>{{contact.name}}</p>
+                                        <div v-for="(msg, msgIndex) in contact.messages" class="small-text text-secondary">
+                                            <span v-if="msg.status === 'received'">
+                                                {{msg.message}}
+                                            </span>
+                                        </div>
                                     </div>
                                 </div>
                                 <div class="time">
