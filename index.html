@@ -79,7 +79,11 @@
                             </div>
 
                             <!-- Avatar nella sezione laterali -->
-                            <div v-for="(contact, index) in contacts" class="avatar d-flex justify-content-between ps-3 p-2">
+                            <div v-for="(contact, index) in contacts" 
+                                class="avatar d-flex justify-content-between ps-3 p-2" 
+                                :class="{ selected: !contact.visible }"
+                                @click="activeClass(index)">
+
                                 <div class="d-flex align-items-center">
                                     <div class="pic-container">
                                         <img :src="contact.avatar" alt="">

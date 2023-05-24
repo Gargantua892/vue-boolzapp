@@ -172,7 +172,10 @@ createApp({
         }
     },
     methods: {
-
+        activeClass: function(index){
+            this.contacts[index].visible = !this.contacts[index].visible;
+            console.log(this.contacts[index].visible);    
+        }
     },
 }).mount("#app");
 
