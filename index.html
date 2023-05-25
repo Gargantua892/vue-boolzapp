@@ -1,13 +1,15 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <!-- Css di bootstrap -->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-KK94CHFLLe+nY2dmCWGMq91rCGa5gtU4mk92HdvYe+M/SXH301p5ILy+dN9+nJOZ" crossorigin="anonymous">
-    
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-KK94CHFLLe+nY2dmCWGMq91rCGa5gtU4mk92HdvYe+M/SXH301p5ILy+dN9+nJOZ" crossorigin="anonymous">
+
     <!-- Icone Bootstrap -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
 
@@ -16,11 +18,12 @@
     <link rel="stylesheet" href="css/style-reset.css">
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
 
     <title>Boolzapp</title>
 </head>
+
 <body>
     <header>
 
@@ -29,13 +32,15 @@
         <div class="container bg-white h-100" id="app">
             <div class="row h-100">
                 <div class="col-12 d-flex p-0 h-100">
-                     <!-- sidebar -->
+                    <!-- sidebar -->
                     <div class="side-msg-container">
 
                         <!-- Top bar -->
                         <div class="top-bar d-flex align-items-center justify-content-between p-2">
                             <div class="avatar d-flex align-items-center">
-                                <img class="small" src="https://images.pexels.com/photos/614810/pexels-photo-614810.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2" alt="">
+                                <img class="small"
+                                    src="https://images.pexels.com/photos/614810/pexels-photo-614810.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2"
+                                    alt="">
                                 <p class="ms-2">Andrea</p>
                             </div>
                             <div class="icons">
@@ -45,28 +50,30 @@
                             </div>
                         </div>
 
-                        <!-- barra notifica --> 
+                        <!-- barra notifica -->
                         <div class="banner d-flex align-items-center px-2 py-4">
                             <i class="bi bi-bell-slash"></i>
-                            <p class="ms-2">Ricevi notifiche di nuovi messaggi <br><span class="small-text"><u>Attiva notifiche desktop</u></span></p>
+                            <p class="ms-2">Ricevi notifiche di nuovi messaggi <br><span class="small-text"><u>Attiva
+                                        notifiche desktop</u></span></p>
                         </div>
 
                         <!-- Search Bar -->
                         <div class="search-bar p-2">
                             <div class="input-group">
-                                <span class="input-group-text bg-white text-black-50" id="basic-addon1"><i class="bi bi-search px-2 "></i></span>
-                                <input type="search" class="form-control" placeholder="Cerca o inizia una nuova chat" aria-label="Search">
-                              </div>
+                                <span class="input-group-text bg-white text-black-50" id="basic-addon1"><i
+                                        class="bi bi-search px-2 "></i></span>
+                                <input type="search" class="form-control" placeholder="Cerca o inizia una nuova chat"
+                                    aria-label="Search" v-model="filteredList">
+                            </div>
                         </div>
 
                         <!-- sidebar avatar -->
                         <div class="avatar-list">
-
+                            
                             <!-- Avatar nella sezione laterali -->
-                            <div v-for="(contact, index) in contacts" 
-                                class="avatar d-flex justify-content-between ps-3 p-2" 
-                                :class="activeItem === index ? 'selected' : ''"
-                                @click="activeClass(index)">
+                            <div v-for="(contact, index) in filterList()"
+                                class="avatar d-flex justify-content-between ps-3 p-2"
+                                :class="activeItem === index ? 'selected' : ''" @click="activeClass(index)">
 
                                 <div class="d-flex align-items-center">
                                     <div class="pic-container">
@@ -74,7 +81,8 @@
                                     </div>
                                     <div class="name-container ms-2">
                                         <p>{{contact.name}}</p>
-                                        <div v-for="(msg, msgIndex) in contact.messages" class="small-text text-secondary">
+                                        <div v-for="(msg, msgIndex) in contact.messages"
+                                            class="small-text text-secondary">
                                             <span v-if=" msg.status === 'received'">
                                                 {{msg.message}}
                                             </span>
@@ -94,7 +102,7 @@
                         <!-- Top bar -->
                         <div class="top-bar d-flex align-items-center justify-content-between p-2">
                             <div class="avatar d-flex align-items-center">
-                                <img class="small" src="https://www.w3schools.com/howto/img_avatar2.png" alt="">
+                                <img class="small" :src="contacts[activeItem].avatar" alt="">
                                 <div class="name-container ms-2">
                                     <p>{{contacts[activeItem].name}}</p>
                                     <span class="small-text text-secondary">Ultimo accesso oggi alle .....</span>
@@ -108,29 +116,18 @@
                         </div>
                         <div class="inner-chat p-5">
 
-                        <!-- Messaggi -->
-                        <div v-for="(contact, index) in contacts" class="msg-container text-end">
-                            <div v-for="(msg, msgIndex) in contact.messages" class="msg">
-                                <p>{{msg.message}}</p>
-                                <span class="chat-time">16:15</span>
-                            </div>
-                        </div>
-                        <!-- <div class="msg-container text-end">
-                            <div class="msg sent">
-                                <p class="sent">Ricordati di stendere i panni</p>
-                                <span class="chat-time">16:15</span>
-                            </div>
-                        </div>
-                        <div class="msg-container">
-                            <div class="msg recived">
-                                <p>Ricordati di stendere i panni</p>
-                                <span class="chat-time">16:15</span>
-                            </div>
-                        </div> -->
-                        <!-- / Messaggi -->
+                            <!-- Messaggi -->
+                            <div v-for="(msg, msgIndex) in contacts[activeItem].messages">
+                                <div class="msg-container" :class=" msg.status === 'sent' ? 'text-end' : ''">
+                                    <div class="msg" :class=" msg.status === 'sent' ? 'sent' : 'received'">
+                                        <p>{{msg.message}}</p>
+                                        <span class="chat-time">16:15</span>
+                                    </div>
+                                </div>
+                            <!-- / Messaggi -->
 
-                        <!-- <pre>{{ contacts }}</pre> -->
-
+                            <!-- <pre>{{ contacts }}</pre> -->
+                            </div>
                         </div>
                         <div class="bottom-bar d-flex align-items-center p-2">
                             <div class="d-flex align-items-center justify-content-between w-100">
@@ -138,13 +135,15 @@
                                     <i class="bi bi-emoji-smile text-black-50"></i>
                                 </div>
                                 <div class="w-100">
-                                    <input class="form-control" type="search" placeholder="Scrivi un messaggio" aria-label="Search">
+                                    <input class="form-control" type="search" placeholder="Scrivi un messaggio"
+                                        aria-label="Search" v-model="sendMsg" @keyup.enter="addMsg(activeItem,sendMsg)">
                                 </div>
                                 <div class="px-3">
                                     <i class="bi bi-mic-fill text-black-50"></i>
                                 </div>
                             </div>
                         </div>
+                    </div>
                     </div>
                 </div>
             </div>
@@ -153,4 +152,5 @@
     <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
     <script src="js/main.js"></script>
 </body>
+
 </html>

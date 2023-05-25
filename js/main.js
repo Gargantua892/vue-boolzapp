@@ -5,6 +5,7 @@ const {createApp} = Vue;
 createApp({
     data() {
         return {
+            filteredList:"",
             activeItem: 0,
             contacts: [
                 {
@@ -174,9 +175,25 @@ createApp({
     },
     methods: {
         activeClass: function(index){
-            activeItem = index;  
-            // this.contacts[index]
-            console.log(activeItem);
+            this.activeItem = index;  
+        },
+
+        //metodo per inviare i messaggi
+        addMsg(activeItem, valueMsg){
+            this.contacts[activeItem].messages.push({ date: '10/01/2020 15:51:00', message: valueMsg, status: 'sent' });
+
+            //Messaggio di risposta dopo 1 secondo
+            setTimeout(() => {
+                this.contacts[activeItem].messages.push({ date: '10/01/2020 15:51:00', message: "ok", status: 'received'});
+              }, 1000);
+        },
+
+        filterList(){
+            if(this.filteredList.length > 0){
+                return this.contacts.filter((user) => user.name.toLowerCase().includes(this.filteredList))
+            }
+            return this.contacts
         }
+
     },
 }).mount("#app");
