@@ -65,7 +65,7 @@
                             <!-- Avatar nella sezione laterali -->
                             <div v-for="(contact, index) in contacts" 
                                 class="avatar d-flex justify-content-between ps-3 p-2" 
-                                :class="{ 'selected' : activeItem}"
+                                :class="activeItem === index ? 'selected' : ''"
                                 @click="activeClass(index)">
 
                                 <div class="d-flex align-items-center">
