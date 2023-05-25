@@ -5,6 +5,7 @@ const {createApp} = Vue;
 createApp({
     data() {
         return {
+            activeItem: 0,
             contacts: [
                 {
                     name: 'Michele',
@@ -173,9 +174,9 @@ createApp({
     },
     methods: {
         activeClass: function(index){
-            this.contacts[index].visible = !this.contacts[index].visible;
-            console.log(this.contacts[index].visible);    
+            activeItem = index;  
+            // this.contacts[index]
+            console.log(activeItem);
         }
     },
 }).mount("#app");
-

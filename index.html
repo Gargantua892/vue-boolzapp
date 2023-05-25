@@ -63,25 +63,9 @@
                         <div class="avatar-list">
 
                             <!-- Avatar nella sezione laterali -->
-                            <div class="avatar d-flex justify-content-between ps-3 p-2 selected">
-                                <div class="d-flex align-items-center">
-                                    <div class="pic-container">
-                                        <img src="https://www.w3schools.com/howto/img_avatar2.png" alt="">
-                                    </div>
-                                    <div class="name-container ms-2">
-                                        <p>Nome</p>
-                                        <span class="small-text text-secondary">Messaggio</span>
-                                    </div>
-                                </div>
-                                <div class="time">
-                                    <span class="small-text text-secondary">12:00</span>
-                                </div>
-                            </div>
-
-                            <!-- Avatar nella sezione laterali -->
                             <div v-for="(contact, index) in contacts" 
                                 class="avatar d-flex justify-content-between ps-3 p-2" 
-                                :class="{ selected: !contact.visible }"
+                                :class="{ 'selected' : activeItem}"
                                 @click="activeClass(index)">
 
                                 <div class="d-flex align-items-center">
@@ -91,7 +75,7 @@
                                     <div class="name-container ms-2">
                                         <p>{{contact.name}}</p>
                                         <div v-for="(msg, msgIndex) in contact.messages" class="small-text text-secondary">
-                                            <span v-if="msg.status === 'received'">
+                                            <span v-if=" msg.status === 'received'">
                                                 {{msg.message}}
                                             </span>
                                         </div>
@@ -112,7 +96,7 @@
                             <div class="avatar d-flex align-items-center">
                                 <img class="small" src="https://www.w3schools.com/howto/img_avatar2.png" alt="">
                                 <div class="name-container ms-2">
-                                    <p>Nome</p>
+                                    <p>{{contacts[activeItem].name}}</p>
                                     <span class="small-text text-secondary">Ultimo accesso oggi alle .....</span>
                                 </div>
                             </div>
@@ -125,13 +109,13 @@
                         <div class="inner-chat p-5">
 
                         <!-- Messaggi -->
-                        <div class="msg-container text-end">
-                            <div class="msg sent">
-                                <p>Hai portato a spasso il cane?</p>
+                        <div v-for="(contact, index) in contacts" class="msg-container text-end">
+                            <div v-for="(msg, msgIndex) in contact.messages" class="msg">
+                                <p>{{msg.message}}</p>
                                 <span class="chat-time">16:15</span>
                             </div>
                         </div>
-                        <div class="msg-container text-end">
+                        <!-- <div class="msg-container text-end">
                             <div class="msg sent">
                                 <p class="sent">Ricordati di stendere i panni</p>
                                 <span class="chat-time">16:15</span>
@@ -142,10 +126,10 @@
                                 <p>Ricordati di stendere i panni</p>
                                 <span class="chat-time">16:15</span>
                             </div>
-                        </div>
+                        </div> -->
                         <!-- / Messaggi -->
 
-                        <pre>{{ contacts }}</pre>
+                        <!-- <pre>{{ contacts }}</pre> -->
 
                         </div>
                         <div class="bottom-bar d-flex align-items-center p-2">
