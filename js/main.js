@@ -5,6 +5,7 @@ const {createApp} = Vue;
 createApp({
     data() {
         return {
+            modal: false,
             filteredList:"",
             activeItem: 0,
             contacts: [
@@ -193,7 +194,18 @@ createApp({
                 return this.contacts.filter((user) => user.name.toLowerCase().includes(this.filteredList))
             }
             return this.contacts
-        }
+        },
+
+        showModal(index){
+            // this.modal = !this.modal;
+            this.modal = index;
+        },
+
+        deleteMessage(activeItem, index){
+            this.contacts[activeItem].messages.splice(index, 1),
+            this.modal = !index;
+        },
+
 
     },
 }).mount("#app");

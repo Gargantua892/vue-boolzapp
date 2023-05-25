@@ -116,6 +116,29 @@ span.chat-time {
     font-size: 10px;
 }
 
+.delete{
+    position: absolute;
+    right: 10px;
+    top: 8px;
+    font-size: 10px;
+}
+
+.delete-modal{
+    position: absolute;
+    right: 10px;
+    top: 16px;
+    background-color: white;
+    padding: 24px 10px;
+    text-align: left;
+    z-index:200;
+}
+
+.delete-modal p:first-child{
+    margin-bottom: 24px;
+}
+
+
+
 .bottom-bar{
     background-color: #f3eeeb;
 }

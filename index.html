@@ -83,7 +83,7 @@
                                         <p>{{contact.name}}</p>
                                         <div v-for="(msg, msgIndex) in contact.messages"
                                             class="small-text text-secondary">
-                                            <span v-if=" msg.status === 'received'">
+                                            <span v-if=" msg.status === 'received'" >
                                                 {{msg.message}}
                                             </span>
                                         </div>
@@ -121,6 +121,12 @@
                                 <div class="msg-container" :class=" msg.status === 'sent' ? 'text-end' : ''">
                                     <div class="msg" :class=" msg.status === 'sent' ? 'sent' : 'received'">
                                         <p>{{msg.message}}</p>
+
+                                        <span class="delete" @click="showModal(msgIndex)"><i class="bi bi-chevron-down"></i></span>
+                                        <div v-if="modal === msgIndex" class="delete-modal">
+                                            <p>Info message</p>
+                                            <p @click="deleteMessage(activeItem, msgIndex)">Delete message</p>
+                                        </div>
                                         <span class="chat-time">16:15</span>
                                     </div>
                                 </div>
@@ -136,7 +142,7 @@
                                 </div>
                                 <div class="w-100">
                                     <input class="form-control" type="search" placeholder="Scrivi un messaggio"
-                                        aria-label="Search" v-model="sendMsg" @keyup.enter="addMsg(activeItem,sendMsg)">
+                                        aria-label="Search" v-model="sendMsg" @keyup.enter="addMsg(activeItem, sendMsg)">
                                 </div>
                                 <div class="px-3">
                                     <i class="bi bi-mic-fill text-black-50"></i>
